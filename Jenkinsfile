@@ -1,14 +1,20 @@
 pipeline {
     agent any
+
+    environment {
+        BRANCH_NAME = 'main'
+        GIT_URL = 'https://github.com/henrykrop2022/awscicd-week13-automation.git'
+    }
     stages {
         stage('git checkout') {
             steps {        
-                git branch: 'main', url: 'https://github.com/henrykrop2022/awscicd-week13-automation.git'
+                git branch: "${BRANCH_NAME}", url: "${GIT_URL}"
                 }
         }
-        stage('Test') {
+        stage('docker build') {
             steps {
-                echo 'Testing..'
+                sh 'docker build -t henrykrop2022/awscicd-week13-automation .'
+                sh 'docker images'
             }
         }
         stage('Deploy') {
