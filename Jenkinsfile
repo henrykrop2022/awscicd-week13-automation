@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('git checkout') {
             steps {
-                git ''
+                git 'https://github.com/henrykrop2022/awscicd-week13-automation.git'
             }
         }
         stage('Test') {
