@@ -2,12 +2,9 @@ pipeline {
     agent any
     stages {
         stage('git checkout') {
-            steps {
-                echo 'Checking out code..'
-                // git branch: 'main',
-                //     credentialsId: 'your-credentials-id',
-                //     url: 'https://github.com/henrykrop2022/awscicd-week13-automation.git'
-            }
+            steps {        
+                git branch: 'main', url: 'https://github.com/henrykrop2022/awscicd-week13-automation.git'
+                }
         }
         stage('Test') {
             steps {
