@@ -3,7 +3,10 @@ pipeline {
     stages {
         stage('git checkout') {
             steps {
-                git 'https://github.com/henrykrop2022/awscicd-week13-automation.git'
+                echo 'Checking out code..'
+                // git branch: 'main',
+                //     credentialsId: 'your-credentials-id',
+                //     url: 'https://github.com/henrykrop2022/awscicd-week13-automation.git'
             }
         }
         stage('Test') {
